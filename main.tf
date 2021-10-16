@@ -2,7 +2,8 @@ resource "aws_lb" "this" {
   count = var.create_lb ? 1 : 0
 
   name        = var.name
-  name_prefix = var.name_prefix
+  # See https://github.com/hashicorp/terraform-provider-aws/issues/9574 for possible explanation of issue
+  # name_prefix = var.name_prefix
 
   load_balancer_type = var.load_balancer_type
   internal           = var.internal
